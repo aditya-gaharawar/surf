@@ -154,6 +154,7 @@ export default function Home() {
       variant="outline"
       size="icon"
       suppressHydrationWarning
+      aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
     >
       {theme === "dark" ? (
         <SunIcon className="h-5 w-5" suppressHydrationWarning />
@@ -236,6 +237,7 @@ export default function Home() {
               variant="ghost"
               size="icon"
               className="mr-1"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -333,6 +335,7 @@ export default function Home() {
                     variant="error"
                     size="sm"
                     className="text-xs px-1.5"
+                    aria-label="Stop workspace"
                   >
                     <Power className="w-3 h-3" />
                   </Button>

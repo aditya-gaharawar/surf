@@ -55,6 +55,7 @@ export function ChatInput({
                 size="iconLg"
                 disabled={disabled}
                 title="Stop generating"
+                aria-label="Stop generating message"
               >
                 <StopCircle className="w-5 h-5" />
               </Button>
@@ -65,6 +66,7 @@ export function ChatInput({
                 size="iconLg"
                 disabled={disabled || isInputEmpty}
                 title="Send message"
+                aria-label="Send message"
               >
                 <motion.span
                   animate={{
