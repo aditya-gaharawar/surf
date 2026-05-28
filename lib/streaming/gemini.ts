@@ -6,8 +6,11 @@ import {
 } from "@/lib/streaming";
 import { ActionResponse } from "@/types/api";
 import { logDebug, logError, logWarning } from "../logger";
-import { GEMINI_MODEL, GENERATE_CONTENT_API } from "../config";
 import { ComputerAction } from "@/types/computer";
+
+// Gemini model and generation endpoint identifiers
+export const GEMINI_MODEL = process.env.MODEL_ID || "gemini-3.1-flash-lite";
+export const GENERATE_CONTENT_API = process.env.GENERATE_CONTENT_API || "streamGenerateContent";
 
 const INSTRUCTIONS = `
 You are CUA, WEBSPACEAI's computer-use assistant for operating a live browser-accessible Linux desktop.

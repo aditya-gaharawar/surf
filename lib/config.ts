@@ -12,7 +12,3 @@ export const MIN_RESOLUTION_HEIGHT = 480;
 // NOTE: This should be within the max/min bounds defined above,
 // otherwise it will be scaled automatically
 export const DEFAULT_RESOLUTION: [number, number] = [1024, 720];
-
-// Gemini model and generation endpoint identifiers
-export const GEMINI_MODEL = process.env.MODEL_ID || "gemini-3.1-flash-lite";
-export const GENERATE_CONTENT_API = process.env.GENERATE_CONTENT_API || "streamGenerateContent";
