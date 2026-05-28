@@ -100,7 +100,9 @@ function ActionMessageDisplay({
   );
 }
 
-export function ChatMessage({ message, className }: ChatMessageProps) {
+// Memoizing the component prevents unnecessary re-renders of older messages
+// when new messages are added or existing ones update (like action completion)
+export const ChatMessage = React.memo(function ChatMessage({ message, className }: ChatMessageProps) {
   const role = message.role;
 
   const isUser = role === "user";
@@ -163,4 +165,4 @@ export function ChatMessage({ message, className }: ChatMessageProps) {
       </Card>
     </div>
   );
-}
+});
