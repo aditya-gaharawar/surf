@@ -9,8 +9,8 @@ import { logDebug, logError, logWarning } from "../logger";
 import { ComputerAction } from "@/types/computer";
 
 // Gemini model and generation endpoint identifiers
-export const GEMINI_MODEL = process.env.MODEL_ID || "gemini-3.1-flash-lite";
-export const GENERATE_CONTENT_API = process.env.GENERATE_CONTENT_API || "streamGenerateContent";
+export const GEMINI_MODEL = "gemini-3.1-flash-lite";
+export const GENERATE_CONTENT_API = "streamGenerateContent";
 
 const INSTRUCTIONS = `
 You are CUA, WEBSPACEAI's computer-use assistant for operating a live browser-accessible Linux desktop.
@@ -406,8 +406,8 @@ export class GeminiComputerStreamer implements ComputerInteractionStreamerFacade
       throw new Error("Gemini API key not found");
     }
 
-    const model = process.env.MODEL_ID || GEMINI_MODEL;
-    const method = process.env.GENERATE_CONTENT_API || GENERATE_CONTENT_API;
+    const model = GEMINI_MODEL;
+    const method = GENERATE_CONTENT_API;
     const endpoint = `${GEMINI_API_BASE_URL}/models/${encodeURIComponent(model)}:${method}?alt=sse&key=${encodeURIComponent(apiKey)}`;
 
     const contents: GeminiContent[] = [
