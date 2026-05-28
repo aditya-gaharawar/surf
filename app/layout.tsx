@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "WEBSPACEAI", url: "https://webspaceai.in" }],
   icons: {
-    icon: "https://code.webspaceai.in/lovable-uploads/4bd26b7b-d74d-49e7-b1b5-75e7b8b47ca9.png",
-    shortcut: "https://code.webspaceai.in/lovable-uploads/4bd26b7b-d74d-49e7-b1b5-75e7b8b47ca9.png",
-    apple: "https://code.webspaceai.in/lovable-uploads/4bd26b7b-d74d-49e7-b1b5-75e7b8b47ca9.png",
+    icon: "https://res.cloudinary.com/radhe-img/image/upload/v1780005640/4bd26b7b-d74d-49e7-b1b5-75e7b8b47ca9_dr9vf5.png",
+    shortcut: "https://res.cloudinary.com/radhe-img/image/upload/v1780005640/4bd26b7b-d74d-49e7-b1b5-75e7b8b47ca9_dr9vf5.png",
+    apple: "https://res.cloudinary.com/radhe-img/image/upload/v1780005640/4bd26b7b-d74d-49e7-b1b5-75e7b8b47ca9_dr9vf5.png",
   },
 };
 
