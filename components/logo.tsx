@@ -1,7 +1,7 @@
 import Image, { type ImageProps } from "next/image";
 
 export const WEBSPACEAI_LOGO_URL =
-  "https://res.cloudinary.com/radhe-img/image/upload/v1780005617/b5556be9-1da8-4fdb-a6b9-969b73491798_1_rzsv8b.png";
+  "/img/b5556be9-1da8-4fdb-a6b9-969b73491798.png";
 
 export default function Logo({
   alt = "WEBSPACEAI",
