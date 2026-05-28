@@ -74,7 +74,7 @@ export function ExamplePrompts({
     >
       <div className="flex items-center gap-2 text-accent">
         <Terminal className="w-4 h-4" />
-        <span className="text-sm font-mono">Try these examples</span>
+        <span className="text-sm font-mono">Launch a mission</span>
       </div>
       <div className="flex flex-wrap gap-2 justify-center w-full px-2 sm:px-0 pb-2 overflow-x-auto scrollbar-thin scrollbar-thumb-[#EBEBEB] dark:scrollbar-thumb-[#333333] scrollbar-track-transparent">
         {prompts.map((item, index) => (

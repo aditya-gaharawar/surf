@@ -200,9 +200,9 @@ export function ChatProvider({ children }: ChatProviderProps) {
                 };
 
                 setMessages((prev) => {
-                  const isOpenAIWaitAction = incomingAction.type === "wait";
+                  const isWaitAction = incomingAction.type === "wait";
 
-                  if (!isOpenAIWaitAction) {
+                  if (!isWaitAction) {
                     return [...prev, actionMessage];
                   }
 
@@ -213,10 +213,10 @@ export function ChatProvider({ children }: ChatProviderProps) {
 
                   const lastActionMessage = lastMessage as ActionChatMessage;
 
-                  const lastActionIsOpenAIWait =
+                  const lastActionIsWait =
                     lastActionMessage.action.type === "wait";
 
-                  if (!lastActionIsOpenAIWait) {
+                  if (!lastActionIsWait) {
                     return [...prev, actionMessage];
                   }
 

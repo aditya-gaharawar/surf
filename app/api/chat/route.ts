@@ -5,7 +5,7 @@ import {
   createStreamingResponse,
 } from "@/lib/streaming";
 import { SANDBOX_TIMEOUT_MS } from "@/lib/config";
-import { OpenAIComputerStreamer } from "@/lib/streaming/openai";
+import { GeminiComputerStreamer } from "@/lib/streaming/gemini";
 import { logError } from "@/lib/logger";
 
 export const maxDuration = 800;
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.E2B_API_KEY;
 
   if (!apiKey) {
-    return new Response("E2B API key not found", { status: 500 });
+    return new Response("Desktop sandbox API key not found", { status: 500 });
   }
 
   let desktop: Sandbox | undefined;
@@ -52,14 +52,14 @@ export async function POST(request: Request) {
     }
 
     if (!desktop) {
-      return new Response("Failed to connect to sandbox", { status: 500 });
+      return new Response("Failed to connect to workspace", { status: 500 });
     }
 
     desktop.setTimeout(SANDBOX_TIMEOUT_MS);
 
     try {
       const streamer: ComputerInteractionStreamerFacade =
-        new OpenAIComputerStreamer(desktop, resolution);
+        new GeminiComputerStreamer(desktop, resolution);
 
       if (!sandboxId && activeSandboxId && vncUrl) {
         async function* stream(): AsyncGenerator<SSEEvent> {
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
       );
     }
   } catch (error) {
-    logError("Error connecting to sandbox:", error);
-    return new Response("Failed to connect to sandbox", { status: 500 });
+    logError("Error connecting to workspace:", error);
+    return new Response("Failed to connect to workspace", { status: 500 });
   }
 }

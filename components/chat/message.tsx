@@ -15,9 +15,9 @@ import {
   Clock,
   User,
   Info,
+  Sparkles,
 } from "lucide-react";
 import { Badge } from "../ui/badge";
-import { OpenAiLogo } from "@phosphor-icons/react";
 
 const messageVariants = cva("", {
   variants: {
@@ -129,12 +129,12 @@ export function ChatMessage({ message, className }: ChatMessageProps) {
   const getRoleIcon = () => {
     if (isUser) return <User className="h-3 w-3" />;
     if (isAssistant) {
-      return <OpenAiLogo className="h-3 w-3" />;
+      return <Sparkles className="h-3 w-3" />;
     }
     return <Info className="h-3 w-3" />;
   };
 
-  const roleLabel = isUser ? "You" : isAssistant ? "Assistant" : "System";
+  const roleLabel = isUser ? "You" : isAssistant ? "CUA" : "System";
 
   return (
     <div

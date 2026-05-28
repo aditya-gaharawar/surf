@@ -1,10 +1,7 @@
 /**
- * Type definitions for Surf Computer API and SSE events
+ * Type definitions for CUA Computer API and SSE events
  */
-import {
-  OpenAIComputerAction,
-  OpenAIComputerScreenshotOutput,
-} from "@/types/openai";
+import { ComputerAction, ComputerScreenshotOutput } from "@/types/computer";
 
 /**
  * SSE event types for client communication
@@ -31,7 +28,7 @@ export interface BaseSSEEvent {
  */
 export interface ActionEvent extends BaseSSEEvent {
   type: SSEEventType.ACTION;
-  action: OpenAIComputerAction;
+  action: ComputerAction;
 }
 
 /**
@@ -47,7 +44,7 @@ export interface ReasoningEvent extends BaseSSEEvent {
  */
 export interface DoneEvent extends BaseSSEEvent {
   type: SSEEventType.DONE;
-  content?: string; // Final OpenAI response output
+  content?: string; // Final model response output
 }
 
 /**
@@ -90,7 +87,7 @@ export type SSEEvent =
  */
 export type ActionResponse = {
   action: string;
-  data: OpenAIComputerScreenshotOutput;
+  data: ComputerScreenshotOutput;
 };
 
 /**
