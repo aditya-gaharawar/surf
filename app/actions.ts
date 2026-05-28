@@ -20,7 +20,7 @@ export async function stopSandboxAction(sandboxId: string) {
     await desktop.kill();
     return true;
   } catch (error) {
-    console.error("Failed to stop sandbox:", error);
+    console.error("Failed to stop workspace:", error);
     return false;
   }
 }

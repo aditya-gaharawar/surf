@@ -2,7 +2,7 @@
  * Type definitions for chat messages and related functionality
  */
 import { ActionEvent, SSEEventType } from "./api";
-import { OpenAIComputerAction } from "@/types/openai";
+import { ComputerAction } from "@/types/computer";
 
 /**
  * Role of a chat message
@@ -47,7 +47,7 @@ export interface SystemChatMessage extends BaseChatMessage {
  */
 export interface ActionChatMessage extends BaseChatMessage {
   role: "action";
-  action: OpenAIComputerAction;
+  action: ComputerAction;
   repeatCount?: number;
   status?: "pending" | "completed" | "failed";
 }

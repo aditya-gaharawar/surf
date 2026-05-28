@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
   MoonIcon,
   SunIcon,
@@ -23,9 +23,8 @@ import { Button } from "@/components/ui/button";
 import { Loader, AssemblyLoader } from "@/components/loader";
 import Link from "next/link";
 import Logo from "@/components/logo";
-import { RepoBanner } from "@/components/repo-banner";
+import { BrandPortal } from "@/components/brand-portal";
 import { SANDBOX_TIMEOUT_MS } from "@/lib/config";
-import { Surfing } from "@/components/surfing";
 
 export default function Home() {
   const [sandboxId, setSandboxId] = useState<string | null>(null);
@@ -76,29 +75,29 @@ export default function Home() {
           setVncUrl(null);
           clearMessages();
           setTimeRemaining(SANDBOX_TIMEOUT_MS / 1000);
-          toast("Sandbox instance stopped");
+          toast("CUA workspace stopped");
         } else {
-          toast.error("Failed to stop sandbox instance");
+          toast.error("Failed to stop workspace");
         }
       } catch (error) {
-        console.error("Failed to stop sandbox:", error);
-        toast.error("Failed to stop sandbox");
+        console.error("Failed to stop workspace:", error);
+        toast.error("Failed to stop workspace");
       }
     }
   };
 
-  const handleIncreaseTimeout = async () => {
+  const handleIncreaseTimeout = useCallback(async () => {
     if (!sandboxId) return;
 
     try {
       await increaseTimeout(sandboxId);
       setTimeRemaining(SANDBOX_TIMEOUT_MS / 1000);
-      toast.success("Instance time increased");
+      toast.success("Workspace time increased");
     } catch (error) {
       console.error("Failed to increase time:", error);
       toast.error("Failed to increase time");
     }
-  };
+  }, [sandboxId]);
 
   const onSubmit = (e: React.FormEvent) => {
     const content = handleSubmit(e);
@@ -141,7 +140,7 @@ export default function Home() {
     setSandboxId(newSandboxId);
     setVncUrl(newVncUrl);
     setTimeRemaining(SANDBOX_TIMEOUT_MS / 1000);
-    toast.success("Sandbox instance created");
+    toast.success("CUA workspace created");
   };
 
   const handleClearChat = () => {
@@ -186,10 +185,17 @@ export default function Home() {
       setVncUrl(null);
       clearMessages();
       stopGeneration();
-      toast.error("Instance time expired");
+      toast.error("Workspace time expired");
       setTimeRemaining(SANDBOX_TIMEOUT_MS / 1000);
     }
-  }, [timeRemaining, sandboxId, stopGeneration, clearMessages, isTabVisible]);
+  }, [
+    timeRemaining,
+    sandboxId,
+    stopGeneration,
+    clearMessages,
+    isTabVisible,
+    handleIncreaseTimeout,
+  ]);
 
   useEffect(() => {
     onSandboxCreated((newSandboxId: string, newVncUrl: string) => {
@@ -212,15 +218,15 @@ export default function Home() {
               className="flex items-center gap-1 sm:gap-2"
               target="_blank"
             >
-              <Logo width={20} height={20} className="sm:w-6 sm:h-6" />
-              <h1 className="whitespace-pre">Surf - Computer Agent by </h1>
+              <Logo width={112} height={27} className="h-5 w-auto sm:h-6" />
+              <h1 className="whitespace-pre">CUA</h1>
             </Link>
             <Link
-              href="https://e2b.dev"
-              className="underline decoration-accent decoration-1 underline-offset-2 text-accent"
+              href="https://webspaceai.in"
+              className="ml-2 hidden sm:inline-flex items-center rounded-full border border-accent/30 px-2 py-0.5 text-xs font-mono tracking-widest text-accent transition-colors hover:bg-accent/10"
               target="_blank"
             >
-              E2B
+              by WEBSPACEAI
             </Link>
           </div>
 
@@ -241,7 +247,7 @@ export default function Home() {
 
           <div className="hidden lg:flex items-center gap-2">
             <ThemeToggle />
-            <RepoBanner />
+            <BrandPortal />
 
             <AnimatePresence>
               {sandboxId && (
@@ -257,7 +263,7 @@ export default function Home() {
                     variant="muted"
                     title={
                       isTabVisible
-                        ? "Increase Time"
+                        ? "Increase workspace time"
                         : "Timer paused (tab not active)"
                     }
                   >
@@ -304,7 +310,7 @@ export default function Home() {
                     size="sm"
                     title={
                       isTabVisible
-                        ? "Increase Time"
+                        ? "Increase workspace time"
                         : "Timer paused (tab not active)"
                     }
                     className="px-1.5"
@@ -347,7 +353,7 @@ export default function Home() {
             >
               <div className="flex items-center gap-2">
                 <ThemeToggle />
-                <RepoBanner />
+                <BrandPortal />
               </div>
             </motion.div>
           )}
@@ -362,7 +368,7 @@ export default function Home() {
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                 <div className="flex items-center gap-3">
                   <h2 className="text-xl font-light text-accent">
-                    {isLoading ? "Starting instance" : "Creating sandbox..."}
+                    {isLoading ? "Starting workspace" : "Creating workspace..."}
                   </h2>
                   <Loader variant="square" className="text-accent" />
                 </div>
@@ -377,8 +383,8 @@ export default function Home() {
 
                 <p className="text-sm text-fg-500 mt-4">
                   {isLoading
-                    ? "Preparing your sandbox environment..."
-                    : "Creating a new sandbox for your request..."}
+                    ? "Preparing your secure workspace..."
+                    : "Creating a new workspace for your request..."}
                 </p>
               </div>
             ) : sandboxId && vncUrl ? (
@@ -390,19 +396,24 @@ export default function Home() {
               />
             ) : (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                <Surfing className="text-[7px] leading-[7px] text-accent font-bold" />
-                <h1 className="text-center text-fg-300 max-w-xs">
-                  <span className="text-fg">Type</span> a message or{" "}
-                  <span className="text-fg">select</span> an example prompt to
-                  start a new{" "}
-                  <a
-                    href="https://github.com/e2b-dev/desktop"
-                    className="underline inline-flex items-center gap-1 decoration-accent decoration-1 underline-offset-2 text-accent"
-                    target="_blank"
-                  >
-                    sandbox <ArrowUpRight className="size-4" />
-                  </a>
-                </h1>
+                <div className="relative flex flex-col items-center gap-5 rounded-3xl border border-accent/20 bg-bg/60 px-8 py-7 shadow-xl backdrop-blur before:absolute before:inset-0 before:-z-10 before:rounded-3xl before:bg-[radial-gradient(circle_at_50%_0%,color-mix(in_oklab,var(--accent)_18%,transparent),transparent_55%)]">
+                  <Logo width={210} height={50} className="h-10 w-auto dark:invert" />
+                  <div className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono tracking-[0.35em] text-accent">
+                    CUA CONTROL DECK
+                  </div>
+                  <h1 className="text-center text-fg-300 max-w-sm normal-case">
+                    <span className="text-fg">Type</span> a mission or{" "}
+                    <span className="text-fg">select</span> an example prompt to
+                    launch a secure computer-use workspace powered by{" "}
+                    <a
+                      href="https://webspaceai.in"
+                      className="underline inline-flex items-center gap-1 decoration-accent decoration-1 underline-offset-2 text-accent"
+                      target="_blank"
+                    >
+                      WEBSPACEAI <ArrowUpRight className="size-4" />
+                    </a>
+                  </h1>
+                </div>
               </div>
             )}
           </div>

@@ -28,7 +28,7 @@ export function ChatInput({
   isLoading,
   onStop,
   disabled = false,
-  placeholder = "What are we surfing today?",
+  placeholder = "What mission should CUA run today?",
   className,
 }: ChatInputProps) {
   const isInputEmpty = useMemo(() => input.trim() === "", [input]);
