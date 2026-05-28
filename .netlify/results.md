@@ -1,0 +1,1 @@
+Replaced real MODEL_ID value in .env.example with a placeholder to prevent Netlify secret scanning failures. Also relocated server environment variables from the shared lib/config.ts to lib/streaming/gemini.ts to avoid client-side bundling of secrets.
