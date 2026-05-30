@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "WEBSPACEAI", url: "https://webspaceai.in" }],
   icons: {
-    icon: "/img/b5556be9-1da8-4fdb-a6b9-969b73491798 (1).png",
-    shortcut: "/img/b5556be9-1da8-4fdb-a6b9-969b73491798 (1).png",
-    apple: "/img/b5556be9-1da8-4fdb-a6b9-969b73491798 (1).png",
+    icon: "/img/logo.png",
+    shortcut: "/img/logo.png",
+    apple: "/img/logo.png",
   },
 };
 
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className="font-webspaceai"
+        className="font-sans antialiased"
         suppressHydrationWarning
       >
         <Providers>

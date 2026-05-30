@@ -1,33 +1,33 @@
 :root {
-  --bg: hsl(0 0% 100%);
-  --bg-100: hsl(0 0% 98%);
-  --bg-200: hsl(0 0% 96%);
-  --bg-300: hsl(0 0% 94%);
-  --bg-400: hsl(0 0% 92%);
-  --bg-500: hsl(0 0% 90%);
+  --bg: #ffffff;
+  --bg-100: #f2f3f5;
+  --bg-200: #e3e5e8;
+  --bg-300: #d4d7db;
+  --bg-400: #c5c8ce;
+  --bg-500: #b6b9c1;
 
-  --fg: hsl(0 0% 5%);
-  --fg-100: hsl(0 0% 13%);
-  --fg-200: hsl(0 0% 21%);
-  --fg-300: hsl(0 0% 29%);
-  --fg-400: hsl(0 0% 37%);
-  --fg-500: hsl(0 0% 45%);
+  --fg: #2e3338;
+  --fg-100: #4f545c;
+  --fg-200: #72767d;
+  --fg-300: #8e9297;
+  --fg-400: #a3a6aa;
+  --fg-500: #b9bbbe;
 
-  --accent: hsl(263 90% 58%);
-  --accent-100: hsl(263 86% 64%);
-  --accent-200: hsl(263 82% 70%);
-  --accent-300: hsl(263 78% 76%);
-  --accent-400: hsl(263 74% 82%);
-  --accent-500: hsl(263 70% 88%);
+  --accent: #7d40e7;
+  --accent-100: #8f5be9;
+  --accent-200: #a276ec;
+  --accent-300: #b491ee;
+  --accent-400: #c7acf1;
+  --accent-500: #dac7f3;
 
-  --accent-fg: hsl(0 0% 100%);
+  --accent-fg: #ffffff;
 
-  --border: hsl(0 0% 90%);
-  --border-100: hsl(0 0% 85%);
-  --border-200: hsl(0 0% 80%);
-  --border-300: hsl(0 0% 75%);
-  --border-400: hsl(0 0% 70%);
-  --border-500: hsl(0 0% 65%);
+  --border: #e3e5e8;
+  --border-100: #d4d7db;
+  --border-200: #c5c8ce;
+  --border-300: #b6b9c1;
+  --border-400: #a3a6aa;
+  --border-500: #8e9297;
 
   --ring: hsl(263 85% 55%);
 
@@ -60,37 +60,37 @@
 }
 
 .dark {
-  --bg: hsl(0 0% 3%);
-  --bg-100: hsl(0 0% 5%);
-  --bg-200: hsl(0 0% 7%);
-  --bg-300: hsl(0 0% 9%);
-  --bg-400: hsl(0 0% 11%);
-  --bg-500: hsl(0 0% 13%);
+  --bg: #202020;
+  --bg-100: #242424;
+  --bg-200: #2a2a2a;
+  --bg-300: #303030;
+  --bg-400: #363636;
+  --bg-500: #404040;
 
-  --fg: hsl(0 0% 98%);
-  --fg-100: hsl(0 0% 90%);
-  --fg-200: hsl(0 0% 82%);
-  --fg-300: hsl(0 0% 74%);
-  --fg-400: hsl(0 0% 66%);
-  --fg-500: hsl(0 0% 60%);
+  --fg: #dcddde;
+  --fg-100: #b9bbbe;
+  --fg-200: #8e9297;
+  --fg-300: #72767d;
+  --fg-400: #4f545c;
+  --fg-500: #36393f;
 
-  --accent: hsl(263 95% 68%);
-  --accent-100: hsl(263 90% 58%);
-  --accent-200: hsl(263 85% 48%);
-  --accent-300: hsl(263 80% 38%);
-  --accent-400: hsl(263 75% 28%);
-  --accent-500: hsl(263 70% 18%);
+  --accent: #7d40e7;
+  --accent-100: #8f5be9;
+  --accent-200: #a276ec;
+  --accent-300: #b491ee;
+  --accent-400: #c7acf1;
+  --accent-500: #dac7f3;
 
-  --accent-fg: hsl(0 0% 100%);
+  --accent-fg: #ffffff;
 
-  --border: hsl(0 0% 10%);
-  --border-100: hsl(0 0% 13%);
-  --border-200: hsl(0 0% 16%);
-  --border-300: hsl(0 0% 19%);
-  --border-400: hsl(0 0% 22%);
-  --border-500: hsl(0 0% 25%);
+  --border: #303030;
+  --border-100: #363636;
+  --border-200: #404040;
+  --border-300: #4f545c;
+  --border-400: #72767d;
+  --border-500: #8e9297;
 
-  --ring: hsl(263 95% 68%);
+  --ring: #7d40e7;
 
   --chart-1: hsl(220 70% 50%);
   --chart-2: hsl(160 60% 45%);

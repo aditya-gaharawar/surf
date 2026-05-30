@@ -1,7 +1,6 @@
 import Image, { type ImageProps } from "next/image";
 
-export const WEBSPACEAI_LOGO_URL =
-  "img/b5556be9-1da8-4fdb-a6b9-969b73491798 (1).png";
+export const WEBSPACEAI_LOGO_URL = "/img/logo.png";
 
 export default function Logo({
   alt = "WEBSPACEAI",
